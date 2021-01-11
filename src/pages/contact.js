@@ -8,7 +8,7 @@ import ContactForm from "../components/contactform"
 
 const ContactPage = ({ intl }) => (
   <Layout>
-    <SEO lang={intl.locale} title={intl.formatMessage({ id: "title_Contact" })} />
+    <SEO lang={intl.locale} title={intl.formatMessage({ id: "title_contact" })} />
     <CenterHeader />
     <div className="mx-16 my-8 md:grid md:grid-cols-4 gap-16 lg:grid-cols-3">
         <div className="md:col-span-2 lg:col-span-2">
@@ -19,7 +19,7 @@ const ContactPage = ({ intl }) => (
 
         </div>
         <div className="md:col-span-2 lg:col-span-1 my-8 p-4 bg-graysidebar border-gray-300 rounded-md border">
-            <div className="bg-yellowbutton font-bold text-xl uppercase m-2 p-2 pl-6 rounded-md w-auto mb-8">
+            <div className="bg-yellowbutton font-bold text-xl uppercase m-2 p-1 pl-4 rounded-md w-auto mb-8 border-2 border-yellowbutton hover:bg-grayfront hover:border-grayfront hover:text-white">
               <ExternalLink href="https://mjfirm.payweb360.com/">
               <FormattedMessage id="button1" />&nbsp;&raquo;
                 </ExternalLink>

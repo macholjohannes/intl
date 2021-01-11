@@ -15,7 +15,7 @@ const IndexPage = () => {
     <Layout>
       <SEO
         lang={intl.locale}
-        title={intl.formatMessage({ id: "title" })}
+        title={intl.formatMessage({ id: "title_home" })}
         keywords={[`debt collection`, `debt collector`,]}
       />
       <CenterHeader />
@@ -31,7 +31,7 @@ const IndexPage = () => {
         </div>
         <p className="my-4"><FormattedMessage id="box1-text" /></p>
         <div>
-          <button className="md:absolute md:bottom-4 h-auto px-4 py-2 m-2 border bg-blue01 text-white text-base rounded font-medium">
+          <button className="md:absolute md:bottom-4 h-auto px-3 py-1 m-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-2 border-blue01 transition duration-300 ease-in-out">
             <Link to="/contact" role="button"><FormattedMessage id="box1-button" />&nbsp;&raquo;
             </Link>
           </button>
@@ -48,7 +48,7 @@ const IndexPage = () => {
         </div>
         <p className="my-4"><FormattedMessage id="box2-text" /></p>
         <div className="min-h-0">
-        <button className="md:absolute md:bottom-4 object-none object-bottom h-auto px-4 py-2 m-2 border bg-blue01 text-white text-base rounded font-medium">
+        <button className="md:absolute md:bottom-4 object-none object-bottom h-auto px-3 py-1 m-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-2 border-blue01 transition duration-300 ease-in-out">
         <ExternalLink href="https://mjfirm.applicantpro.com/jobs/"><FormattedMessage id="box2-button" />&nbsp;&raquo;
             </ExternalLink>
           </button>
@@ -67,7 +67,7 @@ const IndexPage = () => {
           <p className="my-4"><FormattedMessage id="box3-text" /></p>
         </div>
         <div className="align-text-bottom">
-        <button className="h-auto px-4 py-2 m-2 border bg-blue01 text-white text-base rounded font-medium">
+        <button className="h-auto px-3 py-1 m-2 border-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-blue01 transition duration-300 ease-in-out">
             <ExternalLink href="https://mjfirm.payweb360.com/">
             <FormattedMessage id="box3-button" />&nbsp;&raquo;
             </ExternalLink>

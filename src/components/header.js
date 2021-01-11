@@ -13,13 +13,13 @@ function Header ({ siteTitle })  {
     <nav className="font-sans flex items-center justify-between flex-wrap bg-mjgray py-4 px-6">
       <div className="w-1/2 md:w-2/6  md:ml-6">
         <div className="">
-          <Link to={`/`}><Image2 className="w-2 object-contain h-8" /></Link>
+          <Link to={`/`}><Image2 className=""  /></Link>
         </div>
       </div>
-      <div className="flex justify-between lg:hidden">
+      <div className="lg:hidden">
         <button
           onClick={() => toggleExpansion(!isExpanded)}
-          className="order-last px-4 py-2 mb-2 border rounded text-black border-grayoutline hover:text-white hover:border-white"
+          className="px-4 py-2 mb-2 border rounded text-black border-grayoutline hover:text-white hover:border-white"
         >
           <svg
             className="fill-current h-6 w-6"
@@ -40,19 +40,19 @@ function Header ({ siteTitle })  {
           <Link
             to={`/`}
             href="#responsive-header"
-            className="block mt-4 pb-1 lg:ml-6 lg:inline-block lg:mt-0 hover:border-b-1  hover:border-black text-black hover:text-white mr-8"
+            className="block mt-4 pb-1 lg:ml-6 lg:inline-block lg:mt-0 hover:border-b-2  hover:border-grayfront hover:border-solid text-black mr-8 transition duration-300 ease-in-out"
             activeClassName="active-link"
           >
             <FormattedMessage id="menu1" />
           </Link>
           <ExternalLink href="https://mjfirm.applicantpro.com/jobs/"
-            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-8"
+            className="block mt-4 pb-1 lg:ml-6 lg:inline-block lg:mt-0 hover:border-b-2  hover:border-grayfront hover:border-solid text-black mr-8 transition duration-300 ease-in-out"
           >
             <FormattedMessage id="menu2" />
           </ExternalLink>
           <Link
             to={`/contact`}
-            className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
+            className="block mt-4 pb-1 lg:ml-6 lg:inline-block lg:mt-0 hover:border-b-2  hover:border-grayfront hover:border-solid text-black mr-8 transition duration-300 ease-in-out"
             activeClassName="active-link"
           >
             <FormattedMessage id="menu3" />

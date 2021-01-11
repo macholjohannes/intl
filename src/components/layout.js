@@ -30,11 +30,11 @@ const Layout = ({ children, intl }) => {
             <FormattedMessage id="footer-line3" />
             </span>
             <div className="m-2 text-blue01">
-              <Link to="/privacy" className="text-blue01 underline mx-2 my-1 font-medium">
+              <Link to="/privacy" className="text-blue01 underline mx-2 my-1 font-medium hover:text-gray300">
               <FormattedMessage id="privacy-policy" />
               </Link>
                 | 
-              <Link to="/terms" className="text-blue01 underline mx-2 my-1 font-medium">
+              <Link to="/terms" className="text-blue01 underline mx-2 my-1 font-medium hover:text-gray300">
               <FormattedMessage id="terms-and-conditions" />
               </Link>
             </div>

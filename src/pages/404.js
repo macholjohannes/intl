@@ -8,7 +8,7 @@ const NotFoundPage = ({ intl }) => (
   <Layout>
     <SEO
       lang={intl.locale}
-      title={`404: ${intl.formatMessage({ id: "title" })}`}
+      title={`404: ${intl.formatMessage({ id: "Error" })}`}
     />
     <div className="text-center m-24">
     <h1>

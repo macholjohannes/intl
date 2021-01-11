@@ -14,8 +14,13 @@
         line-height: 1.25rem;
         padding: 0.75rem 0;
     }
-    active-link {
-      color:#FF0000;
+    .active-link {
+      color:#343a40;
+      border-bottom: 2px solid #343a40;
+    }
+    .active-link:hover {
+      color:#343a40 !important;
+      border-bottom: 2px solid #343a40;
     }
   }
 @tailwind components;

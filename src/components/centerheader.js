@@ -18,7 +18,7 @@ const CenterHeader = () => (
           <FormattedMessage id="headline2" />
           </div>
         </div>
-        <div className="bg-yellowbutton font-bold text-xl uppercase ml-6 md:ml-10 mt-4 p-2 pl-6 rounded-md w-60">
+        <div className="bg-yellowbutton font-bold text-xl uppercase ml-6 md:ml-10 mt-4 p-1 pl-6 rounded-md w-60 border-2 border-yellowbutton hover:bg-transparent hover:border-white hover:text-white transition duration-300 ease-in-out">
         <ExternalLink href="https://mjfirm.payweb360.com/">
         <FormattedMessage id="button1" />&nbsp;&raquo;
         </ExternalLink>

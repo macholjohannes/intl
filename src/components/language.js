@@ -8,7 +8,7 @@ const languageName = {
 
 const Language = () => {
   return (
-    <div className="px-4 py-2 mb-2 border rounded text-black border-grayoutline font-medium hover:text-white hover:border-white">
+    <div className="px-4 py-2 mb-2 border rounded text-black border-grayoutline font-medium hover:text-white hover:border-white transition duration-300 ease-in-out">
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) =>
           languages.map(language => (

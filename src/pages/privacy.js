@@ -67,7 +67,7 @@ const PrivacyPage = () => (
             www.mjfirm.com<br />
             700 17th Street, Suite 200; Denver, CO 80202<br />
             (866) 729-3328<br />
-              <Link to="/Contact" className="text-blue01 underline  font-medium">
+              <Link to="/contact" className="text-blue01 underline  font-medium">
                 Contact us
               </Link>.
             </p>
