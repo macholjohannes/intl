@@ -32,7 +32,7 @@ const IndexPage = () => {
         <p className="my-4"><FormattedMessage id="box1-text" /></p>
         <div>
           <button className="md:absolute md:bottom-4 h-auto px-4 py-2 m-2 border bg-blue01 text-white text-base rounded font-medium">
-            <Link to="/Contact" role="button"><FormattedMessage id="box1-button" />&nbsp;&raquo;
+            <Link to="/contact" role="button"><FormattedMessage id="box1-button" />&nbsp;&raquo;
             </Link>
           </button>
         </div>

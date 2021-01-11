@@ -51,7 +51,7 @@ function Header ({ siteTitle })  {
             <FormattedMessage id="menu2" />
           </ExternalLink>
           <Link
-            to={`/Contact`}
+            to={`/contact`}
             className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
             activeClassName="active-link"
           >
