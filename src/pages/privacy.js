@@ -29,7 +29,7 @@ const PrivacyPage = ({ intl }) => (
               {chunks}
             </p>
           ),
-          indent: chunks => (
+          pin: chunks => (
             <div className="ml-4">
               {chunks}
             </div>

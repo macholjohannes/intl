@@ -7,7 +7,7 @@ const TermsPage = ({ intl }) => (
   <Layout>
     <SEO lang={intl.locale} title={intl.formatMessage({ id: "privacy-policy" })} />
     <div className="mx-24 my-8">
-        <FormattedMessage id="terms-and-conditions-text"
+        <FormattedMessage id="terms-and-conditions-text-a"
         values={{
           subtitle: chunks => ( 
             <p>
@@ -26,7 +26,57 @@ const TermsPage = ({ intl }) => (
               {chunks}
             </p>
           ),
-          indent: chunks => (
+          pin: chunks => (
+            <div className="ml-4">
+              {chunks}
+            </div>
+          ),
+        }} />
+        <FormattedMessage id="terms-and-conditions-text-b"
+        values={{
+          subtitle: chunks => ( 
+            <p>
+              <strong className="font-medium">
+                {chunks}
+              </strong>
+            </p>
+          ),
+          headline: chunks => (
+            <h1>
+              {chunks}
+            </h1>
+          ),
+          p: chunks => (
+            <p>
+              {chunks}
+            </p>
+          ),
+          pin: chunks => (
+            <div className="ml-4">
+              {chunks}
+            </div>
+          ),
+        }} />
+        <FormattedMessage id="terms-and-conditions-text-c"
+        values={{
+          subtitle: chunks => ( 
+            <p>
+              <strong className="font-medium">
+                {chunks}
+              </strong>
+            </p>
+          ),
+          headline: chunks => (
+            <h1>
+              {chunks}
+            </h1>
+          ),
+          p: chunks => (
+            <p>
+              {chunks}
+            </p>
+          ),
+          pin: chunks => (
             <div className="ml-4">
               {chunks}
             </div>
