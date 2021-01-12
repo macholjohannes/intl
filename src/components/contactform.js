@@ -24,7 +24,7 @@ export default () => {
           "Content-type": "application/json; charset=UTF-8"
         }
       });
-      setSubmitted(true);
+      setSubmitted(true );
       reset();
     } catch (error) {
       setError(
@@ -49,51 +49,95 @@ export default () => {
   const showForm = (
     <div className="">
     <form onSubmit={handleSubmit(onSubmit)} method="post">
-      <div className="mt-4">
-      <label htmlFor="name">
-        <div className="text-gray-700">First Name</div>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Your name"
-          ref={register}
-          className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-        />
-        {errors.name && <div className="msg-error">{errors.name.message}</div>}
-      </label>
+      <div className="pt-12">
+        <label for="reasons">
+          <div className="text-gray-700">Reason for contacting us:
+          </div>
+        </label>
+        <select 
+          id="reasons" 
+          name="reasons" 
+          ref={register({ required: true })} 
+          className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
+          <option value="">Please select one...</option>
+          <option value="question">Ask a question</option>
+          <option value="information">Request information</option>
+          <option value="complaint">File a complaint</option>
+          <option value="compliment">Make a compliment</option>
+        </select>
       </div>
+      {errors.reasons && <p className="text-error font-medium italic">Reason is required.</p>}
+      <div className="mt-4">
+        <label htmlFor="name">
+          <div className="text-gray-700">Your Name:</div>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your name"
+            ref={register({ required: true })}
+            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
+          />
+        </label>
+        {errors.name && <p className="text-error font-medium italic">Name is required.</p>}
+      </div>
+      
       <div className="mt-4">
       <label htmlFor="email">
-        <div className="text-gray-700">Email</div>
+        <div className="text-gray-700">Email:</div>
         <input
           type="email"
           name="email"
           id="email"
           placeholder="your@email.address"
-          ref={register}
+          ref={register({ 
+            required: true,
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          })}
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
-        {errors.email && (
-          <div className="msg-error">{errors.email.message}</div>
-        )}
       </label>
+      {errors.email && <p className="text-error font-medium italic">Email is required.</p>}
       </div>
       <div className="mt-4">
-      <label htmlFor="question">
-        <div className="text-gray-700">Message</div>
+        <label htmlFor="account">
+          <div className="text-gray-700">The number on your account (Optional):</div>
+          <input
+            type="text"
+            name="account"
+            id="account"
+            placeholder="Account No."
+            ref={register}
+            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
+          />
+        </label>
+      </div>
+      <div className="mt-4">
+        <label htmlFor="phone">
+          <div className="text-gray-700">Phone number we can call you back at (Optional):</div>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Phone number"
+            ref={register}
+            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
+          />
+        </label>
+      </div>
+      <div className="mt-4">
+      <label htmlFor="message">
+        <div className="text-gray-700">Message:</div>
         <textarea
-          ref={register}
-          name="question"
-          id="question"
+          ref={register({ required: true })}
+          name="message"
+          id="message"
           rows="3"
           placeholder="Your message"
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
-        {errors.question && (
-          <div className="msg-error">{errors.question.message}</div>
-        )}
       </label>
+      {errors.message && <p className="text-error font-medium italic">Message is required.</p>}
           </div>
       <div className="submit-wrapper py-4">
         <button type="submit" className="btn-outline-primary transition duration-300 ease-in-out focus:shadow-outline border-2 border-blue-800 hover:bg-blue-800 text-blue-800 hover:text-white font-bold py-2 px-4 rounded">

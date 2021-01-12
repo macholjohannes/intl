@@ -21,6 +21,7 @@ module.exports = {
       grayfront: '#343a40',
       grayoutline: '#c2c2c2',
       yellowbutton: '#ffc107',
+      error: 'red',
     },
     extend: {},
   },

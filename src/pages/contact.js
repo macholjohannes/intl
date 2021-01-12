@@ -13,7 +13,7 @@ const ContactPage = ({ intl }) => (
     <div className="mx-16 my-8 md:grid md:grid-cols-4 gap-16 lg:grid-cols-3">
         <div className="md:col-span-2 lg:col-span-2">
             <h2 className="text-4xl font-medium leading-normal mb-6"><FormattedMessage id="contact-us-title" /></h2>
-            <p className="my-4"><FormattedMessage id="contact-us-txt1" /></p>
+            <p className="my-4"><FormattedMessage id="contact-us-txt1" /> <a href="tel:8667293328" aria-label="8 6 6. 7 2 9. 3 3 2 8.">(866) 729-3328</a>.</p>
             <div className="leading-6">
                 <strong><FormattedMessage id="contact-us-toll-free" />:</strong> (866) 729-3328<br />
                 <strong><FormattedMessage id="contact-us-general-fax" />:</strong> (866) 857-7527<br />
