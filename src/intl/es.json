@@ -33,6 +33,8 @@
   "form-reason-option-3": "Select One",
   "form-reason-option-4": "Select One",
   "form-reason-error": "La razón no puede estar vacía.",
+  "form-confirmation": "Gracias por contactarnos! Su mensaje ha sido enviado y nos comunicaremos con usted tan pronto nos sea posible.",
+  "form-confirmation-button": "Volver",
   "form-name": "Su nombre:",
   "form-name-error": "El nombre no puede estar vacío.",
   "form-email": "Su correo electrónico:",

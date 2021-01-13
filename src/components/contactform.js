@@ -47,9 +47,9 @@ const ContactForm = () => {
 
   const showThankYou = (
     <div className="msg-confirm my-8 bg-blue01 text-white font-medium h-auto p-6">
-      <p>Thank you for your Inquiry! Your message was sent and you will be hearing from our staff shortly.</p>
+      <p><FormattedMessage id="form-confirmation" /></p>
       <button className="border hover:bg-white border-white rounded p-4 m-6 font-medium hover:text-blue01" type="button" onClick={() => setSubmitted(false)}>
-        Clear Form
+      <FormattedMessage id="form-confirmation-button" />
       </button>
     </div>
   );

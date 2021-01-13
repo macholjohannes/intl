@@ -26,6 +26,8 @@
   "contact-us-colorado": "Machol & Johannes Colorado location is on the 2nd Floor of 700 17th Street in downtown Denver, Colorado.",
   "contact-us-office-hours": "Office Hours",
   "contact-us-mailing-address": "Mailing Address",
+  "form-confirmation": "Thank you for your Inquiry! Your message was sent and you will be hearing from our staff shortly.",
+  "form-confirmation-button": "Clear",
   "form-reason": "Reason for contacting us:",
   "form-reason-test": "<op1>Select One...</op1><op2>Ask a questions</op2>",
   "form-reason-option": "Select One...",
