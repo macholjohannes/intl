@@ -66,11 +66,11 @@ const ContactForm = () => {
             name="reasons" 
             ref={register({ required: true })} 
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
-            <option value="">Select One...</option>
-            <option value="question">Ask a question</option>
-            <option value="information">Request information</option>
-            <option value="complaint">File a complaint</option>
-            <option value="compliment">Make a compliment</option>
+            <option value="">Select One... / Eliga una...</option>
+            <option value="question">Ask a question / Haga una pregunta</option>
+            <option value="information">Request information / Solicite información</option>
+            <option value="complaint">File a complaint / Presente una queja</option>
+            <option value="compliment">Make a compliment / Envíe un comentario</option>
           </select>
         </label>
       </div>
@@ -84,7 +84,7 @@ const ContactForm = () => {
             type="text"
             name="name"
             id="name"
-            placeholder="Your name"
+            placeholder="Your name / Su nombre"
             ref={register({ required: true })}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -102,7 +102,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           id="email"
-          placeholder="your@email.address"
+          placeholder="your@email.com"
           ref={register({ 
             required: true,
             pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -122,7 +122,7 @@ const ContactForm = () => {
             type="text"
             name="account"
             id="account"
-            placeholder="Account No."
+            placeholder="Account No. / Su no. de cuenta"
             ref={register}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -137,7 +137,7 @@ const ContactForm = () => {
             type="text"
             name="phone"
             id="phone"
-            placeholder="Phone number"
+            placeholder="Phone number / Su teléfono"
             ref={register}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -153,7 +153,7 @@ const ContactForm = () => {
           name="message"
           id="message"
           rows="3"
-          placeholder="Your message"
+          placeholder="Your message / Su mensaje"
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
       </label>
