@@ -88,7 +88,7 @@ const ContactPage = ({ intl }) => (
                 <h4 className="float-left">Washington</h4> <ExternalLink href="http://maps.google.com/maps?q=2800+156th+Avenue,+Suite+105,+Bellevue,+WA++98007&hl=en&sll=39.746763,-104.99114&sspn=0.04382,0.072184&vpsrc=0&gl=us&z=16&iwloc=A"><span className="text-xs text-blue01 underline pl-2"><FormattedMessage id="contact-us-map" /></span></ExternalLink>
                 </div>
                 <FormattedMessage id="contact-us-mailing-address" />: <br />
-                2800 156th Avenue SE, Suite 105
+                2800 156th Avenue SE, Suite 105<br />
                 Bellevue, Washington 98007<br />
 
                 <div className="mt-2 font-bold">
