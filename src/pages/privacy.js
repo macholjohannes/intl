@@ -8,7 +8,7 @@ import { FormattedMessage, injectIntl } from "gatsby-plugin-intl"
 const PrivacyPage = ({ intl }) => (
   <Layout>
     <SEO lang={intl.locale} title={intl.formatMessage({ id: "privacy-policy" })} />
-      <div className="mx-24 my-8">
+      <div className="mx-2 my-4 lg:mx-24 lg:my-8">
       
         <FormattedMessage id="privacy-policy-text"
         values={{

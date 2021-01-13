@@ -7,7 +7,7 @@ const MjlogoSm = () => {
     query {
       mjLogosm: file(relativePath: { eq: "machol-&-johannes-logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 275) {
+          fluid(maxWidth: 341) {
             ...GatsbyImageSharpFluid
           }
         }

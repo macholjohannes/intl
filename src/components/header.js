@@ -11,14 +11,14 @@ function Header ({ siteTitle })  {
   const [isExpanded, toggleExpansion] = useState(false)
 
   return (
-    <nav className="font-sans flex items-center justify-between flex-wrap bg-mjgray py-2 px-6 min-h-full" >
-      <div className="mb-4 w-1/2 md:w-2/6 md:ml-6">
-        <div className="md:hidden pt-3">
+    <nav className="font-sans flex items-center justify-between flex-wrap bg-mjgray py-2 pl-4 min-h-full " >
+      <div className="mb-2 pt-2 w-1/2 md:w-2/6 md:ml-4 md:mb-0">
+        <div className="md:hidden ">
           <Link to={`/`}>
             <MjlogoSm />
           </Link>
         </div>
-        <div className="hidden md:block pt-2">
+        <div className="hidden md:block">
           <Link to={`/`}>
             <MjlogoLg />
           </Link>
