@@ -1,5 +1,6 @@
 import React from "react"
 import { FormattedMessage, injectIntl, Link } from "gatsby-plugin-intl"
+import { ExternalLink } from 'react-external-link';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
