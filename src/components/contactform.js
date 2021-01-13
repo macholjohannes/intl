@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import { FormattedMessage, injectIntl } from "gatsby-plugin-intl"
+
 import { useForm } from "react-hook-form"
 
-
-
-
-const ContactForm = () => {
+const ContactForm = ({ intl }) => {
 
   const GATEWAY_URL = "https://29v8wns725.execute-api.us-east-2.amazonaws.com/prod";
   
@@ -66,11 +64,21 @@ const ContactForm = () => {
             name="reasons" 
             ref={register({ required: true })} 
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
-            <option value="">Select One... / Eliga una...</option>
-            <option value="question">Ask a question / Haga una pregunta</option>
-            <option value="information">Request information / Solicite información</option>
-            <option value="complaint">File a complaint / Presente una queja</option>
-            <option value="compliment">Make a compliment / Envíe un comentario</option>
+            <option value="">
+              {intl.formatMessage({ id: "form-reason-option" })}
+            </option>
+            <option value="question">
+              {intl.formatMessage({ id: "form-reason-option-a" })}
+            </option>
+            <option value="information">
+              {intl.formatMessage({ id: "form-reason-option-b" })}
+            </option>
+            <option value="complaint">
+              {intl.formatMessage({ id: "form-reason-option-c" })}
+            </option>
+            <option value="compliment">
+            {intl.formatMessage({ id: "form-reason-option-d" })}
+            </option>
           </select>
         </label>
       </div>
@@ -84,7 +92,7 @@ const ContactForm = () => {
             type="text"
             name="name"
             id="name"
-            placeholder="Your name / Su nombre"
+            placeholder={intl.formatMessage({ id: "form-name-placeholder" })}
             ref={register({ required: true })}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -102,7 +110,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           id="email"
-          placeholder="your@email.com"
+          placeholder={intl.formatMessage({ id: "form-email-placeholder" })}
           ref={register({ 
             required: true,
             pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -122,7 +130,7 @@ const ContactForm = () => {
             type="text"
             name="account"
             id="account"
-            placeholder="Account No. / Su no. de cuenta"
+            placeholder={intl.formatMessage({ id: "form-account-placeholder" })}
             ref={register}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -137,7 +145,7 @@ const ContactForm = () => {
             type="text"
             name="phone"
             id="phone"
-            placeholder="Phone number / Su teléfono"
+            placeholder={intl.formatMessage({ id: "form-phone-placeholder" })} 
             ref={register}
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
@@ -153,7 +161,7 @@ const ContactForm = () => {
           name="message"
           id="message"
           rows="3"
-          placeholder="Your message / Su mensaje"
+          placeholder={intl.formatMessage({ id: "form-message-placeholder" })} 
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
       </label>
@@ -177,5 +185,7 @@ const ContactForm = () => {
     </div>
   );
 };
+
+
 
 export default injectIntl(ContactForm)
