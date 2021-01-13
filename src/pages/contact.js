@@ -10,7 +10,7 @@ const ContactPage = ({ intl }) => (
   <Layout>
     <SEO lang={intl.locale} title={intl.formatMessage({ id: "title_contact" })} />
     <CenterHeader />
-    <div className="mx-2 my-4 md:mx-16 md:my-8 md:grid md:grid-cols-4 gap-16 lg:grid-cols-3">
+    <div className="mx-4 my-4 md:mx-16 md:my-8 md:grid md:grid-cols-4 gap-16 lg:grid-cols-3">
         <div className="md:col-span-2 lg:col-span-2">
             <h2 className="text-4xl font-medium leading-normal mb-6"><FormattedMessage id="contact-us-title" /></h2>
             <p className="my-4"><FormattedMessage id="contact-us-txt1" /> <a href="tel:8667293328" aria-label="8 6 6. 7 2 9. 3 3 2 8.">(866) 729-3328</a>.</p>
@@ -44,7 +44,7 @@ const ContactPage = ({ intl }) => (
                   700 17th St<br />
                   Suite 200<br />
                   Denver, Colorado 80202<br />
-                  <p>Machol & Johannes' Colorado location is on the 2nd Floor of 700 17th Street in downtown Denver, Colorado.</p>
+                  <p><FormattedMessage id="contact-us-colorado" /></p>
 
                 <div className="text-lg mt-2 font-bold">
                 <h4>Idaho</h4>

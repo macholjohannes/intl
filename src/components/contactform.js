@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react"
+import { FormattedMessage, injectIntl } from "gatsby-plugin-intl"
+import { useForm } from "react-hook-form"
 
-const GATEWAY_URL = "https://29v8wns725.execute-api.us-east-2.amazonaws.com/prod";
 
-export default () => {
+
+
+const ContactForm = () => {
+
+  const GATEWAY_URL = "https://29v8wns725.execute-api.us-east-2.amazonaws.com/prod";
+  
   const [submitted, setSubmitted] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -37,6 +43,8 @@ export default () => {
 
   const showSubmitError = msg => <p className="msg-error">{msg}</p>;
 
+
+
   const showThankYou = (
     <div className="msg-confirm my-8 bg-blue01 text-white font-medium h-auto p-6">
       <p>Thank you for your Inquiry! Your message was sent and you will be hearing from our staff shortly.</p>
@@ -51,25 +59,27 @@ export default () => {
     <form onSubmit={handleSubmit(onSubmit)} method="post">
       <div className="pt-12">
         <label for="reasons">
-          <div className="text-gray-700">Reason for contacting us:
+          <div className="text-gray-700"><FormattedMessage id="form-reason" />
           </div>
+          <select 
+            id="reasons" 
+            name="reasons" 
+            ref={register({ required: true })} 
+            className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
+            <option value="">Select One...</option>
+            <option value="question">Ask a question</option>
+            <option value="information">Request information</option>
+            <option value="complaint">File a complaint</option>
+            <option value="compliment">Make a compliment</option>
+          </select>
         </label>
-        <select 
-          id="reasons" 
-          name="reasons" 
-          ref={register({ required: true })} 
-          className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
-          <option value="">Please select one...</option>
-          <option value="question">Ask a question</option>
-          <option value="information">Request information</option>
-          <option value="complaint">File a complaint</option>
-          <option value="compliment">Make a compliment</option>
-        </select>
       </div>
-      {errors.reasons && <p className="text-error font-medium italic">Reason is required.</p>}
+      {errors.reasons && <p className="text-error font-medium italic">
+        <FormattedMessage id="form-reason-error" /></p>}
       <div className="mt-4">
         <label htmlFor="name">
-          <div className="text-gray-700">Your Name:</div>
+          <div className="text-gray-700">
+          <FormattedMessage id="form-name" /></div>
           <input
             type="text"
             name="name"
@@ -79,12 +89,15 @@ export default () => {
             className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
           />
         </label>
-        {errors.name && <p className="text-error font-medium italic">Name is required.</p>}
+        {errors.name && <p className="text-error font-medium italic">
+        <FormattedMessage id="form-name-error" /></p>}
       </div>
       
       <div className="mt-4">
       <label htmlFor="email">
-        <div className="text-gray-700">Email:</div>
+        <div className="text-gray-700">
+        <FormattedMessage id="form-email" />
+        </div>
         <input
           type="email"
           name="email"
@@ -97,11 +110,14 @@ export default () => {
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
       </label>
-      {errors.email && <p className="text-error font-medium italic">Email is required.</p>}
+      {errors.email && <p className="text-error font-medium italic">
+        <FormattedMessage id="form-email-error" /></p>}
       </div>
       <div className="mt-4">
         <label htmlFor="account">
-          <div className="text-gray-700">The number on your account (Optional):</div>
+          <div className="text-gray-700">
+          <FormattedMessage id="form-account" />
+          </div>
           <input
             type="text"
             name="account"
@@ -114,7 +130,9 @@ export default () => {
       </div>
       <div className="mt-4">
         <label htmlFor="phone">
-          <div className="text-gray-700">Phone number we can call you back at (Optional):</div>
+          <div className="text-gray-700">
+          <FormattedMessage id="form-phone" />
+            </div>
           <input
             type="text"
             name="phone"
@@ -127,7 +145,9 @@ export default () => {
       </div>
       <div className="mt-4">
       <label htmlFor="message">
-        <div className="text-gray-700">Message:</div>
+        <div className="text-gray-700">
+          <FormattedMessage id="form-message" />
+          </div>
         <textarea
           ref={register({ required: true })}
           name="message"
@@ -137,11 +157,11 @@ export default () => {
           className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
         />
       </label>
-      {errors.message && <p className="text-error font-medium italic">Message is required.</p>}
+      {errors.message && <p className="text-error font-medium italic"><FormattedMessage id="form-message-error" /></p>}
           </div>
       <div className="submit-wrapper py-4">
-        <button type="submit" className="btn-outline-primary transition duration-300 ease-in-out focus:shadow-outline border-2 border-blue-800 hover:bg-blue-800 text-blue-800 hover:text-white font-bold py-2 px-4 rounded">
-          Send
+        <button type="submit" className="bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-blue01 btn-outline-primary transition duration-300 ease-in-out focus:shadow-outline py-2 px-4">
+        <FormattedMessage id="form-send" />
         </button>
       </div>
     </form>
@@ -157,3 +177,5 @@ export default () => {
     </div>
   );
 };
+
+export default injectIntl(ContactForm)

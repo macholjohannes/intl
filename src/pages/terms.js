@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 const TermsPage = ({ intl }) => (
   <Layout>
     <SEO lang={intl.locale} title={intl.formatMessage({ id: "privacy-policy" })} />
-    <div className="mx-2 my-4 lg:mx-24 lg:my-8">
+    <div className="mx-4 my-4 lg:mx-24 lg:my-8">
         <FormattedMessage id="terms-and-conditions-text-a"
         values={{
           subtitle: chunks => ( 

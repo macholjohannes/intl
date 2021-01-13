@@ -1,22 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import {  Link  } from "gatsby"
 import { FormattedMessage } from "gatsby-plugin-intl"
 import { injectIntl } from "gatsby-plugin-intl"
 
 import Header from "./header"
 
 const Layout = ({ children, intl }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Header siteTitle={intl.formatMessage({ id: "title" })} />
