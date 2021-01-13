@@ -7,19 +7,19 @@ const MjlogoSm = () => {
     query {
       mjLogosm: file(relativePath: { eq: "machol-&-johannes-logo.png" }) {
         childImageSharp {
-          fixed(width: 275) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 275) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
 
-  if (!data?.mjLogosm?.childImageSharp?.fixed) {
+  if (!data?.mjLogosm?.childImageSharp?.fluid) {
     return <div>Picture not found</div>
   }
 
-  return <Img fixed={data.mjLogosm.childImageSharp.fixed} alt="Machol and Johannes" />
+  return <Img fluid={data.mjLogosm.childImageSharp.fluid} alt="Machol and Johannes" />
 }
 
 export default MjlogoSm
