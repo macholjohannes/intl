@@ -11,7 +11,7 @@ function Header ({ siteTitle })  {
   const [isExpanded, toggleExpansion] = useState(false)
 
   return (
-    <nav className="font-sans flex items-center justify-between flex-wrap bg-mjgray py-2 pl-4 min-h-full " >
+    <nav className="capitalize font-sans flex items-center justify-between flex-wrap bg-mjgray py-2 pl-4 min-h-full " >
       <div className="mb-4 pt-2 w-1/2 md:w-2/6 md:ml-4 md:mb-0">
         <div className="md:hidden ">
           <Link to={`/`}>
@@ -25,7 +25,7 @@ function Header ({ siteTitle })  {
         </div>
       </div>
 
-      <div className="lg:hidden">
+      <div className="lg:hidden" >
         <button
           onClick={() => toggleExpansion(!isExpanded)}
           className="absolute right-28 top-4 px-4 py-2 mb-2 border rounded text-black border-grayoutline hover:text-white hover:border-white"
@@ -53,19 +53,19 @@ function Header ({ siteTitle })  {
           <Link
             to={`/`}
             href="#responsive-header"
-            className="my-2 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
+            className="my-2 mr-4 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
             activeClassName="active-link"
           >
             <FormattedMessage id="menu1" />
           </Link>
           <ExternalLink href="https://mjfirm.applicantpro.com/jobs/"
-            className="my-2 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
+            className="my-2 mr-4 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
           >
             <FormattedMessage id="menu2" />
           </ExternalLink>
           <Link
             to={`/contact`}
-            className="my-2 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
+            className="my-2 mr-4 block border pb-1 rounded  border-gray300 hover:bg-gray300 lg:hover:bg-transparent lg:border-mjgray lg:rounded-none lg:my-0 lg:pb-0 lg:mx-6 lg:inline-block lg:hover:text-yellowbutton transition duration-300 ease-in-out"
             activeClassName="active-link"
           >
             <FormattedMessage id="menu3" />
