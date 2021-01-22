@@ -25,7 +25,7 @@ const IndexPage = () => {
           <div>
             <img className="object-none h-32 w-full" src={icon1} alt="get a reply icon" />
           </div>
-          <div>
+          <div >
             <h2 className="ml-4"><FormattedMessage id="box1-headline" /></h2>
           </div>
         </div>
