@@ -95,7 +95,7 @@ const ContactPage = ({ intl }) => (
                 <h4 className="float-left">Wyoming</h4> <ExternalLink href="https://www.google.com/maps/place/2232+Dell+Range+Blvd+%23103,+Cheyenne,+WY+82009/%4041.1605491,-104.7880348,17z/data=!3m1!4b1!4m5!3m4!1s0x876f3ba7ec44042b:0x666941338c30555f!8m2!3d41.1605491!4d-104.7858461?hl=en"><span className="text-xs text-blue01 underline pl-2"><FormattedMessage id="contact-us-map" /></span></ExternalLink>
                 </div>
                 <FormattedMessage id="contact-us-mailing-address" />: <br />
-                2232 Dell Range Blvd, Suite 103<br />
+                2232 Dell Range Blvd, Suite 100<br />
                 Cheyenne, Wyoming 82009<br />
 
 			</div>
