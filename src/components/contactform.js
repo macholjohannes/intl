@@ -1,191 +1,346 @@
-import React, { useState } from "react"
-import { FormattedMessage, injectIntl } from "gatsby-plugin-intl"
-
-import { useForm } from "react-hook-form"
+import React, { useState } from 'react'
+import { FormattedMessage, injectIntl } from 'gatsby-plugin-intl'
+import Popup from './popup'
+import { useForm } from 'react-hook-form'
 
 const ContactForm = ({ intl }) => {
+  const GATEWAY_URL = '#'
 
-  const GATEWAY_URL = "https://4ttlqy3bn9.execute-api.us-east-2.amazonaws.com/prod";
-  
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false)
+  const [state, setState] = useState({})
 
-  const {
-    register,
-    handleSubmit,
-    setError,
-    errors,
-    reset,
-  } = useForm();
+  const handleChange = (e) => {
+    setState({ ...state, reason: e.target.value })
+  }
+  const isDispute = state.reason
+  let selectValue
+  let normalValue
+  if (isDispute === 'dispute') {
+    selectValue = <div></div>
+  } else {
+    normalValue = <div></div>
+  }
 
-  const onSubmit = async data => {
+  const { register, handleSubmit, setError, watch, errors, reset } = useForm()
+
+  const onSubmit = async (data) => {
     try {
       await fetch(GATEWAY_URL, {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
         body: JSON.stringify(data),
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      });
-      setSubmitted(true );
-      reset();
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      setSubmitted(true)
+      reset()
     } catch (error) {
       setError(
-        "submit",
-        "submitError",
+        'submit',
+        'submitError',
         `Oops! There seems to be an issue! ${error.message}`
-      );
+      )
     }
-  };
+  }
+  const otherValue = watch('other')
 
-  const showSubmitError = msg => <p className="msg-error">{msg}</p>;
-
-
+  const showSubmitError = (msg) => <p className='msg-error'>{msg}</p>
 
   const showThankYou = (
-    <div className="msg-confirm my-8 bg-blue01 text-white font-medium h-auto p-6">
-      <p><FormattedMessage id="form-confirmation" /></p>
-      <button className="border hover:bg-white border-white rounded p-4 m-6 font-medium hover:text-blue01" type="button" onClick={() => setSubmitted(false)}>
-      <FormattedMessage id="form-confirmation-button" />
+    <div className='msg-confirm my-8 bg-blue01 text-white font-medium h-auto p-6'>
+      <p>
+        <FormattedMessage id='form-confirmation' />
+      </p>
+      <button
+        className='border hover:bg-white border-white rounded p-4 m-6 font-medium hover:text-blue01'
+        type='button'
+        onClick={() => setSubmitted(false)}
+      >
+        <FormattedMessage id='form-confirmation-button' />
       </button>
     </div>
-  );
+  )
 
   const showForm = (
-    <div className="">
-    <form onSubmit={handleSubmit(onSubmit)} method="post">
-      <div className="pt-12">
-        <label for="reasons">
-          <div className="text-gray-700"><FormattedMessage id="form-reason" />
-          </div>
-          <select 
-            id="reasons" 
-            name="reasons" 
-            ref={register({ required: true })} 
-            className="mt-1 p-2 block w-full border-gray-400 rounded border-2">
-            <option value="">
-              {intl.formatMessage({ id: "form-reason-option" })}
-            </option>
-            <option value="question">
-              {intl.formatMessage({ id: "form-reason-option-a" })}
-            </option>
-            <option value="information">
-              {intl.formatMessage({ id: "form-reason-option-b" })}
-            </option>
-            <option value="complaint">
-              {intl.formatMessage({ id: "form-reason-option-c" })}
-            </option>
-            <option value="compliment">
-            {intl.formatMessage({ id: "form-reason-option-d" })}
-            </option>
-          </select>
-        </label>
-      </div>
-      {errors.reasons && <p className="text-error font-medium italic">
-        <FormattedMessage id="form-reason-error" /></p>}
-      <div className="mt-4">
-        <label htmlFor="name">
-          <div className="text-gray-700">
-          <FormattedMessage id="form-name" /></div>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder={intl.formatMessage({ id: "form-name-placeholder" })}
-            ref={register({ required: true })}
-            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-          />
-        </label>
-        {errors.name && <p className="text-error font-medium italic">
-        <FormattedMessage id="form-name-error" /></p>}
-      </div>
-      
-      <div className="mt-4">
-      <label htmlFor="email">
-        <div className="text-gray-700">
-        <FormattedMessage id="form-email" />
-        </div>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder={intl.formatMessage({ id: "form-email-placeholder" })}
-          ref={register({ 
-            required: true,
-            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-          })}
-          className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-        />
-      </label>
-      {errors.email && <p className="text-error font-medium italic">
-        <FormattedMessage id="form-email-error" /></p>}
-      </div>
-      <div className="mt-4">
-        <label htmlFor="account">
-          <div className="text-gray-700">
-          <FormattedMessage id="form-account" />
-          </div>
-          <input
-            type="text"
-            name="account"
-            id="account"
-            placeholder={intl.formatMessage({ id: "form-account-placeholder" })}
-            ref={register}
-            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-          />
-        </label>
-      </div>
-      <div className="mt-4">
-        <label htmlFor="phone">
-          <div className="text-gray-700">
-          <FormattedMessage id="form-phone" />
+    <div className=''>
+      <form onSubmit={handleSubmit(onSubmit)} method='post'>
+        <div className='pt-12'>
+          <label for='reasons'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-reason' />
             </div>
-          <input
-            type="text"
-            name="phone"
-            id="phone"
-            placeholder={intl.formatMessage({ id: "form-phone-placeholder" })} 
-            ref={register}
-            className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-          />
-        </label>
-      </div>
-      <div className="mt-4">
-      <label htmlFor="message">
-        <div className="text-gray-700">
-          <FormattedMessage id="form-message" />
+            <select
+              id='reasons'
+              name='reasons'
+              value={state.reason}
+              onChange={handleChange}
+              ref={register({ required: true })}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            >
+              <option value=''>
+                {intl.formatMessage({ id: 'form-reason-option' })}
+              </option>
+              <option value='dispute' name='dispute' id='dispute'>
+                {intl.formatMessage({ id: 'form-reason-option-e' })}
+              </option>
+              <option value='question' name='question' id='question'>
+                {intl.formatMessage({ id: 'form-reason-option-a' })}
+              </option>
+              <option value='information' name='information' id='information'>
+                {intl.formatMessage({ id: 'form-reason-option-b' })}
+              </option>
+              <option value='complaint' name='complaint' id='complaint'>
+                {intl.formatMessage({ id: 'form-reason-option-c' })}
+              </option>
+              <option value='compliment' name='compliment' id='compliment'>
+                {intl.formatMessage({ id: 'form-reason-option-d' })}
+              </option>
+            </select>
+          </label>
+        </div>
+        {errors.reasons && (
+          <p className='text-error font-medium italic'>
+            <FormattedMessage id='form-reason-error' />
+          </p>
+        )}
+        {selectValue && (
+          <div className='ml-4'>
+            <div className='items-left mt-1 mb-6'>
+              <div className='mr-4'>
+                <label class=' block'>
+                  <input
+                    class='mr-2 leading-tight'
+                    type='checkbox'
+                    ref={register()}
+                    name='dispute-not-my-debt'
+                    id='dispute-not-my-debt'
+                  />
+                  <span class='text-sm'>
+                    <FormattedMessage id='dispute-not-my-debt' />
+                  </span>
+                </label>
+              </div>
+              <div className='mr-4'>
+                <label class='block'>
+                  <input
+                    class='mr-2 leading-tight'
+                    type='checkbox'
+                    ref={register()}
+                    name='dispute-wrong-amount'
+                    id='dispute-wrong-amount'
+                  />
+                  <span class='text-sm'>
+                    <FormattedMessage id='dispute-wrong-amount' />
+                  </span>
+                </label>
+              </div>
+
+              <div className='mr-4'>
+                <label class=' block'>
+                  <input
+                    class='mr-2 leading-tight'
+                    type='checkbox'
+                    ref={register()}
+                    name='dispute-original-creditor-name'
+                    id='dispute-original-creditor-name'
+                  />
+                  <span class='text-sm'>
+                    <FormattedMessage id='dispute-original-creditor-name' />
+                  </span>
+                </label>
+              </div>
+              <div className='mr-4'>
+                <label class=' block'>
+                  <input
+                    class='mr-2 leading-tight'
+                    type='checkbox'
+                    name='other'
+                    id='other'
+                    ref={register()}
+                  />
+                  <span class='text-sm'>
+                    <FormattedMessage id='dispute-other' />
+                  </span>
+                </label>
+                {otherValue && (
+                  <div>
+                    <label name='dispute-other-reason'>
+                      <input
+                        className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+                        type='text'
+                        name='dispute-other-reason'
+                        id='dispute-other-reason'
+                        ref={register()}
+                      />
+                    </label>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        <textarea
-          ref={register({ required: true })}
-          name="message"
-          id="message"
-          rows="3"
-          placeholder={intl.formatMessage({ id: "form-message-placeholder" })} 
-          className="mt-1 p-2 block w-full border-gray-400 rounded border-2"
-        />
-      </label>
-      {errors.message && <p className="text-error font-medium italic"><FormattedMessage id="form-message-error" /></p>}
+        )}
+        <div className='mt-4'>
+          <label htmlFor='fname'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-fname' />
+            </div>
+            <input
+              type='text'
+              name='fname'
+              id='fname'
+              placeholder={intl.formatMessage({ id: 'form-fname-placeholder' })}
+              ref={register({ required: true })}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            />
+          </label>
+          {errors.fname && (
+            <p className='text-error font-medium italic'>
+              <FormattedMessage id='form-fname-error' />
+            </p>
+          )}
+        </div>
+        <div className='mt-4'>
+          <label htmlFor='lname'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-lname' />
+            </div>
+            <input
+              type='text'
+              name='lname'
+              id='lname'
+              placeholder={intl.formatMessage({ id: 'form-lname-placeholder' })}
+              ref={register({ required: true })}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            />
+          </label>
+          {errors.lname && (
+            <p className='text-error font-medium italic'>
+              <FormattedMessage id='form-lname-error' />
+            </p>
+          )}
+        </div>
+        {selectValue && (
+          <div>
+            <div className='mt-4'>
+              <label htmlFor='account'>
+                <div className='text-gray-700'>
+                  <FormattedMessage id='form-account-required' />
+                </div>
+                <input
+                  type='text'
+                  name='account'
+                  id='account'
+                  placeholder={intl.formatMessage({
+                    id: 'form-account-placeholder',
+                  })}
+                  ref={register({ required: true })}
+                  className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+                />
+              </label>
+              <div className='leading-tight'>
+                <Popup />
+              </div>
+            </div>
+            {errors.account && (
+              <p className='text-error font-medium italic'>
+                <FormattedMessage id='form-account-error' />
+              </p>
+            )}
           </div>
-      <div className="submit-wrapper py-4">
-        <button type="submit" className="bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-blue01 btn-outline-primary transition duration-300 ease-in-out focus:shadow-outline py-2 px-4">
-        <FormattedMessage id="form-send" />
-        </button>
-      </div>
-    </form>
+        )}
+        {normalValue && (
+          <div className='mt-4'>
+            <label htmlFor='account'>
+              <div className='text-gray-700'>
+                <FormattedMessage id='form-account' />
+              </div>
+              <input
+                type='text'
+                name='account'
+                id='account'
+                placeholder={intl.formatMessage({
+                  id: 'form-account-placeholder',
+                })}
+                ref={register}
+                className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+              />
+            </label>
+          </div>
+        )}
+        <div className='mt-4'>
+          <label htmlFor='email'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-email' />
+            </div>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              placeholder={intl.formatMessage({ id: 'form-email-placeholder' })}
+              ref={register()}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            />
+          </label>
+        </div>
+        <div className='mt-4'>
+          <label htmlFor='phone'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-phone' />
+            </div>
+            <input
+              type='text'
+              name='phone'
+              id='phone'
+              placeholder={intl.formatMessage({ id: 'form-phone-placeholder' })}
+              ref={register}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            />
+          </label>
+        </div>
+        <div className='mt-4'>
+          <label htmlFor='message'>
+            <div className='text-gray-700'>
+              <FormattedMessage id='form-message' />
+            </div>
+            <textarea
+              ref={register({ required: true })}
+              name='message'
+              id='message'
+              rows='3'
+              placeholder={intl.formatMessage({
+                id: 'form-message-placeholder',
+              })}
+              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+            />
+          </label>
+          {errors.message && (
+            <p className='text-error font-medium italic'>
+              <FormattedMessage id='form-message-error' />
+            </p>
+          )}
+        </div>
+        <div className='submit-wrapper py-4'>
+          <button
+            type='submit'
+            className='bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-blue01 btn-outline-primary transition duration-300 ease-in-out focus:shadow-outline py-2 px-4'
+          >
+            <FormattedMessage id='form-send' />
+          </button>
+        </div>
+      </form>
     </div>
-  );
+  )
 
   return (
-    <div className="page contact-page">
-      <div className="text-side">
+    <div className='page contact-page'>
+      <div className='text-side'>
         {errors && errors.submit && showSubmitError(errors.submit.message)}
       </div>
-      <div className="form-side">{submitted ? showThankYou : showForm}</div>
+      <div className='form-side'>{submitted ? showThankYou : showForm}</div>
     </div>
-  );
-};
-
-
+  )
+}
 
 export default injectIntl(ContactForm)
