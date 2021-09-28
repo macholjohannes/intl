@@ -68,7 +68,7 @@ const ContactForm = ({ intl }) => {
     <div className=''>
       <form onSubmit={handleSubmit(onSubmit)} method='post'>
         <div className='pt-12'>
-          <label for='reasons'>
+          <label htmlFor='reasons'>
             <div className='text-gray-700'>
               <FormattedMessage id='form-reason' />
             </div>
@@ -110,58 +110,58 @@ const ContactForm = ({ intl }) => {
           <div className='ml-4'>
             <div className='items-left mt-1 mb-6'>
               <div className='mr-4'>
-                <label class=' block'>
+                <label className=' block'>
                   <input
-                    class='mr-2 leading-tight'
+                    className='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
                     name='notmydebt'
                     id='notmydebt'
                   />
-                  <span class='text-sm'>
+                  <span className='text-sm'>
                     <FormattedMessage id='dispute-not-my-debt' />
                   </span>
                 </label>
               </div>
               <div className='mr-4'>
-                <label class='block'>
+                <label className='block'>
                   <input
-                    class='mr-2 leading-tight'
+                    className='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
                     name='wrongamount'
                     id='wrongamount'
                   />
-                  <span class='text-sm'>
+                  <span className='text-sm'>
                     <FormattedMessage id='dispute-wrong-amount' />
                   </span>
                 </label>
               </div>
 
               <div className='mr-4'>
-                <label class=' block'>
+                <label className=' block'>
                   <input
-                    class='mr-2 leading-tight'
+                    className='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
                     name='creditorname'
                     id='creditorname'
                   />
-                  <span class='text-sm'>
+                  <span className='text-sm'>
                     <FormattedMessage id='dispute-original-creditor-name' />
                   </span>
                 </label>
               </div>
               <div className='mr-4'>
-                <label class=' block'>
+                <label className=' block'>
                   <input
-                    class='mr-2 leading-tight'
+                    className='mr-2 leading-tight'
                     type='checkbox'
                     name='other'
                     id='other'
                     ref={register()}
                   />
-                  <span class='text-sm'>
+                  <span className='text-sm'>
                     <FormattedMessage id='dispute-other' />
                   </span>
                 </label>
