@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 
 const ContactForm = ({ intl }) => {
   const GATEWAY_URL =
-    'https://505jxrcruc.execute-api.us-east-2.amazonaws.com/staging'
+    'https://4ttlqy3bn9.execute-api.us-east-2.amazonaws.com/prod'
 
   const [submitted, setSubmitted] = useState(false)
   const [state, setState] = useState({})
