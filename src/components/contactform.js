@@ -4,7 +4,8 @@ import Popup from './popup'
 import { useForm } from 'react-hook-form'
 
 const ContactForm = ({ intl }) => {
-  const GATEWAY_URL = '#'
+  const GATEWAY_URL =
+    'https://505jxrcruc.execute-api.us-east-2.amazonaws.com/staging'
 
   const [submitted, setSubmitted] = useState(false)
   const [state, setState] = useState({})
@@ -114,8 +115,8 @@ const ContactForm = ({ intl }) => {
                     class='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
-                    name='dispute-not-my-debt'
-                    id='dispute-not-my-debt'
+                    name='notmydebt'
+                    id='notmydebt'
                   />
                   <span class='text-sm'>
                     <FormattedMessage id='dispute-not-my-debt' />
@@ -128,8 +129,8 @@ const ContactForm = ({ intl }) => {
                     class='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
-                    name='dispute-wrong-amount'
-                    id='dispute-wrong-amount'
+                    name='wrongamount'
+                    id='wrongamount'
                   />
                   <span class='text-sm'>
                     <FormattedMessage id='dispute-wrong-amount' />
@@ -143,8 +144,8 @@ const ContactForm = ({ intl }) => {
                     class='mr-2 leading-tight'
                     type='checkbox'
                     ref={register()}
-                    name='dispute-original-creditor-name'
-                    id='dispute-original-creditor-name'
+                    name='creditorname'
+                    id='creditorname'
                   />
                   <span class='text-sm'>
                     <FormattedMessage id='dispute-original-creditor-name' />
@@ -166,12 +167,12 @@ const ContactForm = ({ intl }) => {
                 </label>
                 {otherValue && (
                   <div>
-                    <label name='dispute-other-reason'>
+                    <label name='disputeother'>
                       <input
                         className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
                         type='text'
-                        name='dispute-other-reason'
-                        id='dispute-other-reason'
+                        name='disputeother'
+                        id='disputeother'
                         ref={register()}
                       />
                     </label>
