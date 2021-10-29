@@ -127,16 +127,16 @@ const ContactPage = ({ intl }) => (
           <br />
           <div className='mt-2 font-bold'>
             <h4 className='float-left'>Washington</h4>{' '}
-            <ExternalLink href='http://maps.google.com/maps?q=2800+156th+Avenue,+Suite+105,+Bellevue,+WA++98007&hl=en&sll=39.746763,-104.99114&sspn=0.04382,0.072184&vpsrc=0&gl=us&z=16&iwloc=A'>
+            <ExternalLink href='https://www.google.com/maps/place/12900+NE+180th+St,+Bothell,+WA+98011/@47.7583212,-122.1694817,17z/data=!3m1!4b1!4m5!3m4!1s0x54900e812f16692b:0xe060697d80383f17!8m2!3d47.7583212!4d-122.1672877'>
               <span className='text-xs text-blue01 underline pl-2'>
                 <FormattedMessage id='contact-us-map' />
               </span>
             </ExternalLink>
           </div>
           <FormattedMessage id='contact-us-mailing-address' />: <br />
-          2800 156th Avenue SE, Suite 105
+          12900 NE 180th Street, Suite 140
           <br />
-          Bellevue, Washington 98007
+          Bothell, Washington 98011
           <br />
           <div className='mt-2 font-bold'>
             <h4 className='float-left'>Wyoming</h4>{' '}

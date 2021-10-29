@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Machol & Johannes LLC Attorneys At Law`,
@@ -25,7 +29,7 @@ module.exports = {
         background_color: `#024fa2`,
         theme_color: `#024fa2`,
         display: `minimal-ui`,
-        icon: `src/images/machol-johannes-icon.png`, 
+        icon: `src/images/machol-johannes-icon.png`,
       },
     },
     {

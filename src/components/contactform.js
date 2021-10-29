@@ -4,9 +4,6 @@ import Popup from './popup'
 import { useForm } from 'react-hook-form'
 
 const ContactForm = ({ intl }) => {
-  const GATEWAY_URL =
-    'https://4ttlqy3bn9.execute-api.us-east-2.amazonaws.com/prod'
-
   const [submitted, setSubmitted] = useState(false)
   const [state, setState] = useState({})
 
@@ -26,7 +23,7 @@ const ContactForm = ({ intl }) => {
 
   const onSubmit = async (data) => {
     try {
-      await fetch(GATEWAY_URL, {
+      await fetch(`${process.env.GATSBY_GATEWAY_URL}`, {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
