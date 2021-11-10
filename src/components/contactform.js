@@ -7,16 +7,22 @@ const ContactForm = ({ intl }) => {
   const [submitted, setSubmitted] = useState(false)
   const [state, setState] = useState({})
 
+  /* Handling change on field conditionals */
+
   const handleChange = (e) => {
     setState({ ...state, reason: e.target.value })
   }
-  const isDispute = state.reason
-  let selectValue
+  const isSelection = state.reason
+  let selectValueD
   let normalValue
-  if (isDispute === 'dispute') {
-    selectValue = <div></div>
+  let selectValueQI
+  if (isSelection === 'dispute' || isSelection === 'complaint') {
+    selectValueD = <div></div>
   } else {
     normalValue = <div></div>
+  }
+  if (isSelection === 'question' || isSelection === 'information') {
+    selectValueQI = <div></div>
   }
 
   const { register, handleSubmit, setError, watch, errors, reset } = useForm()
@@ -43,6 +49,7 @@ const ContactForm = ({ intl }) => {
     }
   }
   const otherValue = watch('other')
+  const checkBox1 = watch('email')
 
   const showSubmitError = (msg) => <p className='msg-error'>{msg}</p>
 
@@ -80,20 +87,20 @@ const ContactForm = ({ intl }) => {
               <option value=''>
                 {intl.formatMessage({ id: 'form-reason-option' })}
               </option>
-              <option value='dispute' name='dispute' id='dispute'>
-                {intl.formatMessage({ id: 'form-reason-option-e' })}
-              </option>
               <option value='question' name='question' id='question'>
                 {intl.formatMessage({ id: 'form-reason-option-a' })}
               </option>
-              <option value='information' name='information' id='information'>
-                {intl.formatMessage({ id: 'form-reason-option-b' })}
+              <option value='dispute' name='dispute' id='dispute'>
+                {intl.formatMessage({ id: 'form-reason-option-e' })}
               </option>
               <option value='complaint' name='complaint' id='complaint'>
                 {intl.formatMessage({ id: 'form-reason-option-c' })}
               </option>
               <option value='compliment' name='compliment' id='compliment'>
                 {intl.formatMessage({ id: 'form-reason-option-d' })}
+              </option>
+              <option value='information' name='information' id='information'>
+                {intl.formatMessage({ id: 'form-reason-option-b' })}
               </option>
             </select>
           </label>
@@ -103,7 +110,7 @@ const ContactForm = ({ intl }) => {
             <FormattedMessage id='form-reason-error' />
           </p>
         )}
-        {selectValue && (
+        {selectValueD && (
           <div className='ml-4'>
             <div className='items-left mt-1 mb-6'>
               <div className='mr-4'>
@@ -219,7 +226,7 @@ const ContactForm = ({ intl }) => {
             </p>
           )}
         </div>
-        {selectValue && (
+        {selectValueD && (
           <div>
             <div className='mt-4'>
               <label htmlFor='account'>
@@ -267,21 +274,54 @@ const ContactForm = ({ intl }) => {
             </label>
           </div>
         )}
-        <div className='mt-4'>
-          <label htmlFor='email'>
-            <div className='text-gray-700'>
-              <FormattedMessage id='form-email' />
+        {selectValueQI && (
+          <div>
+            <div className='mt-4'>
+              <label htmlFor='email'>
+                <div className='text-gray-700'>
+                  <FormattedMessage id='form-email' />
+                </div>
+                <input
+                  type='email'
+                  name='email'
+                  id='email'
+                  placeholder={intl.formatMessage({
+                    id: 'form-email-placeholder',
+                  })}
+                  ref={register()}
+                  className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
+                />
+              </label>
             </div>
-            <input
-              type='email'
-              name='email'
-              id='email'
-              placeholder={intl.formatMessage({ id: 'form-email-placeholder' })}
-              ref={register()}
-              className='mt-1 p-2 block w-full border-gray-400 rounded border-2'
-            />
-          </label>
-        </div>
+          </div>
+        )}
+        {checkBox1 && (
+          <div>
+            <div className='flex nowrap mt-1'>
+              <div className='mx-2'>
+                <input
+                  type='checkbox'
+                  id='emailconsent'
+                  name='emailconsent'
+                  ref={register({ required: true })}
+                  className=''
+                ></input>
+              </div>
+              {errors.emailconsent && (
+                <div className='text-error font-medium italic mr-2'>
+                  <FormattedMessage id='form-checkbox-consent-error' />
+                </div>
+              )}
+              <div className=''>
+                <FormattedMessage id='form-email-consent' />
+              </div>
+            </div>
+
+            <div className='mx-2 text-sm'>
+              <FormattedMessage id='form-email-consent-disclaimer' />
+            </div>
+          </div>
+        )}
         <div className='mt-4'>
           <label htmlFor='phone'>
             <div className='text-gray-700'>
