@@ -14,9 +14,13 @@ const ContactForm = ({ intl }) => {
   }
   const isSelection = state.reason
   let selectValueD
+  let selectValueE
   let normalValue
   let selectValueQI
-  if (isSelection === 'dispute' || isSelection === 'complaint') {
+  if (isSelection === 'dispute') {
+    selectValueD = <div></div>
+    selectValueE = <div></div>
+  } else if (isSelection === 'complaint') {
     selectValueD = <div></div>
   } else {
     normalValue = <div></div>
@@ -110,7 +114,7 @@ const ContactForm = ({ intl }) => {
             <FormattedMessage id='form-reason-error' />
           </p>
         )}
-        {selectValueD && (
+        {selectValueE && (
           <div className='ml-4'>
             <div className='items-left mt-1 mb-6'>
               <div className='mr-4'>
