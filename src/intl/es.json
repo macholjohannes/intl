@@ -42,7 +42,7 @@
   "form-lname": "Apellido:",
   "form-fname-error": "El nombre no puede estar vacío.",
   "form-lname-error": "El apellido no puede estar vacío.",
-  "form-email": "Su correo electrónico:",
+  "form-email": "Su correo electrónico (opcional):",
   "form-email-error": "El correo electrónico no puede estar vacío.",
   "form-account": "Su número de su cuenta (opcional):",
   "form-email-consent": "Otorgo mi consentimiento expreso y por escrito para comunicarme por correo electrónico.",
