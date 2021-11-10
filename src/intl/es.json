@@ -45,7 +45,7 @@
   "form-email": "Su correo electrónico:",
   "form-email-error": "El correo electrónico no puede estar vacío.",
   "form-account": "Su número de su cuenta (opcional):",
-  "form-email-consent": "Otorgo mi consentimiento expreso y por escrito para comunicarme por correo electrónico",
+  "form-email-consent": "Otorgo mi consentimiento expreso y por escrito para comunicarme por correo electrónico.",
   "form-email-consent-disclaimer": "No enviaremos un correo electrónico a la dirección de correo electrónico de su trabajo.",
   "form-checkbox-consent-error": "Este campo no puede estar vacío",
   "form-account-required": "Su número de su cuenta:",
