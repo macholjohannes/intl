@@ -320,10 +320,6 @@ const ContactForm = ({ intl }) => {
                 <FormattedMessage id='form-email-consent' />
               </div>
             </div>
-
-            <div className='mx-2 text-sm'>
-              <FormattedMessage id='form-email-consent-disclaimer' />
-            </div>
           </div>
         )}
         <div className='mt-4'>
