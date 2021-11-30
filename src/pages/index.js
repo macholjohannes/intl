@@ -1,13 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
-import { FormattedMessage, useIntl } from "gatsby-plugin-intl"
-import { ExternalLink } from 'react-external-link';
-import Layout from "../components/layout"
-import CenterHeader from "../components/centerheader"
-import SEO from "../components/seo"
-import icon1 from "../images/icon1.png"
-import icon2 from "../images/icon2.png"
-import icon3 from "../images/icon3.png"
+import React from 'react'
+import { useIntl } from 'gatsby-plugin-intl'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const IndexPage = () => {
   const intl = useIntl()
@@ -15,66 +9,17 @@ const IndexPage = () => {
     <Layout>
       <SEO
         lang={intl.locale}
-        title={intl.formatMessage({ id: "title_home" })}
-        keywords={[`debt collection`, `debt collector`,]}
+        title={intl.formatMessage({ id: 'title_home' })}
+        keywords={[`debt collection`, `debt collector`]}
       />
-      <CenterHeader />
-      <div className="md:flex">
-      <div className="md:relative flex-1 ml-4 md:ml-10 mr-4 mt-8 px-6 py-4 border border-gray300 rounded-lg">
-        <div className="flex items-center h-10">
-          <div>
-            <img className="object-none h-32 w-full" src={icon1} alt="get a reply icon" />
-          </div>
-          <div >
-            <h2 className="ml-4"><FormattedMessage id="box1-headline" /></h2>
-          </div>
-        </div>
-        <p className="my-4"><FormattedMessage id="box1-text" /></p>
-        <div>
-          <button className="md:absolute md:bottom-4 h-auto px-3 py-1 m-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-2 border-blue01 transition duration-300 ease-in-out">
-            <Link to="/contact" role="button"><FormattedMessage id="box1-button" />&nbsp;&raquo;
-            </Link>
-          </button>
-        </div>
+      <div className='mt-6 md:m-10 md:p-10 m-4 p-4 text-center border border-gray-600 border-1 rounded-lg'>
+        We no longer actively service consumer accounts. Payments scheduled to
+        be processed after November 30th will no longer be processed. A
+        successor relationship manager will contact you soon to arrange your
+        future payments and needs. If you need to pay sooner or if this is an
+        emergency, please call us. Main Line: 303-830-0075 or Toll Free:
+        1-866-729-3328.
       </div>
-      <div className="md:relative flex-1 mx-4 mt-8 px-6 py-4 border border-gray300 rounded-lg">
-        <div className="flex items-center h-10">
-          <div>
-            <img className="object-none h-32 w-full" src={icon2} alt="work for us icon" />
-          </div>
-          <div>
-            <h2 className="ml-4"><FormattedMessage id="box2-headline" /></h2>
-          </div>
-        </div>
-        <p className="my-4"><FormattedMessage id="box2-text" /></p>
-        <div className="min-h-0">
-        <button className="md:absolute md:bottom-4 object-none object-bottom h-auto px-3 py-1 m-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-2 border-blue01 transition duration-300 ease-in-out">
-        <ExternalLink href="https://mjfirm.applicantpro.com/jobs/"><FormattedMessage id="box2-button" />&nbsp;&raquo;
-            </ExternalLink>
-          </button>
-        </div>
-      </div>
-      <div className="flex-1 mr-4 md:mr-10 ml-4 mt-8 border border-gray300 rounded-lg px-6 py-4">
-        <div className="flex items-center h-10">
-          <div>
-            <img className="object-none h-32 w-full" src={icon3} alt="work for us icon" />
-          </div>
-          <div>
-            <h2 className="ml-4"><FormattedMessage id="box3-headline" /></h2>
-          </div>
-        </div>
-        <div className="block">
-          <p className="my-4"><FormattedMessage id="box3-text" /></p>
-        </div>
-        <div className="align-text-bottom">
-        <button className="h-auto px-3 py-1 m-2 border-2 bg-blue01 text-white text-base rounded font-medium hover:bg-white hover:text-blue01 border-blue01 transition duration-300 ease-in-out">
-            <ExternalLink href="https://mjfirm.payweb360.com/">
-            <FormattedMessage id="box3-button" />&nbsp;&raquo;
-            </ExternalLink>
-          </button>
-          </div>
-      </div>
-    </div>
     </Layout>
   )
 }
