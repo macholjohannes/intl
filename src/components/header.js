@@ -13,9 +13,7 @@ function Header({ siteTitle }) {
     <nav className=''>
       <div className='w-auto text-center mt-6'>
         <div className=' md:block'>
-          <Link to={`/`}>
-            <MjlogoLg />
-          </Link>
+          <MjlogoLg />
         </div>
       </div>
     </nav>
