@@ -1,14 +1,8 @@
-import { FormattedMessage, Link } from 'gatsby-plugin-intl'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { ExternalLink } from 'react-external-link'
-import Language from './language'
-import MjlogoSm from './mjlogo-sm'
+import React from 'react'
 import MjlogoLg from './mjlogo-lg'
 
-function Header({ siteTitle }) {
-  const [isExpanded, toggleExpansion] = useState(false)
-
+function Header() {
   return (
     <nav className=''>
       <div className='w-auto text-center mt-6'>
