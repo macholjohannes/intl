@@ -29,6 +29,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "gatsby-disable-404": "^0.2.1",
     "prettier": "^1.19.1"
   },
   "keywords": [

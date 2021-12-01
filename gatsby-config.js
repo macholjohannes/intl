@@ -12,6 +12,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-postcss`,
+    `gatsby-disable-404`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

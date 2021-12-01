@@ -6466,6 +6466,11 @@
     "tmp" "^0.2.1"
     "xdg-basedir" "^4.0.0"
 
+"gatsby-disable-404@^0.2.1":
+  "integrity" "sha512-P7A4mZH+RTNKkMEOaF9TzlqCI4/3Nautym3bbC8AbTGBgd1TbnH7c//St/EAtt6zWg7Z/+XSwlnBQF84QxfFtg=="
+  "resolved" "https://registry.npmjs.org/gatsby-disable-404/-/gatsby-disable-404-0.2.1.tgz"
+  "version" "0.2.1"
+
 "gatsby-graphiql-explorer@^0.9.0":
   "integrity" "sha512-n6eAbeVuHn67/8n0iHJ0hOIKs3Cuw4qvukbPF0iWbGQsJSoR6X+eFB4jreaAYagyPheWSdMUSD9pnDovYaBncg=="
   "resolved" "https://registry.npmjs.org/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-0.9.0.tgz"
