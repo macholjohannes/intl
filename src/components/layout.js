@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { injectIntl } from 'gatsby-plugin-intl'
 
 import Header from './header'
 
-const Layout = ({ children, intl }) => {
+const Layout = ({ children }) => {
   return (
     <div>
-      <Header siteTitle={intl.formatMessage({ id: 'title' })} />
+      <Header siteTitle='Machol & Johannes, LLC' />
       <main>{children}</main>
       <footer className='px-12 py-2 my-2 text-center text-sm text-gray-600 leading-6'>
         © 2011 - {new Date().getFullYear()} Machol & Johannes, LLC All rights
@@ -21,4 +20,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default injectIntl(Layout)
+export default Layout

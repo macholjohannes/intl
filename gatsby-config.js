@@ -33,15 +33,5 @@ module.exports = {
         icon: `src/images/machol-johannes-icon.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        path: `${__dirname}/src/intl`,
-        languages: [`en`],
-        defaultLanguage: `en`,
-        redirect: false,
-        redirectComponent: require.resolve(`./src/components/redirect.js`),
-      },
-    },
   ],
 }
